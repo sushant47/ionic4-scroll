@@ -6,17 +6,20 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="home">
-
-  <ion-virtual-scroll [items]="people" approxItemHeight="50px">
+  <ion-card *ngFor="let person of people">
+    <ion-card-content>
+      <ion-card-title>
+        {{person.first_name}}
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+  <!-- <ion-virtual-scroll [items]="people" approxItemHeight="50px">
     <ion-item *virtualItem="let person">
-      <!-- <ion-avatar item-left>
-				<ion-img [src]="person.picture" width="48" height="48"></ion-img>
-			</ion-avatar> -->
       <h2>{{person.first_name}}</h2>
     </ion-item>
-  </ion-virtual-scroll>
+  </ion-virtual-scroll> -->
 
-  <ion-infinite-scroll (infinite)="doInfinite($event)">
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>

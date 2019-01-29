@@ -14,13 +14,16 @@ export class HomePage {
   constructor(private peopleService: PeopleService) {
     this.loadPeople();
   }
-  loadPeople() {
+  loadPeople(infiniteScroll?) {
 
     return this.peopleService.getPageResults(this.start, this.size)
       .subscribe((data: any) => {
         console.log(data);
         for (const person of data.message) {
           this.people.push(person);
+        }
+        if (infiniteScroll) {
+          infiniteScroll.target.complete();
         }
 
       });
@@ -30,7 +33,7 @@ export class HomePage {
     console.log('doInfinite, start is currently ' + this.start);
     this.start += 1;
     this.size += 10;
-    this.loadPeople();
+    this.loadPeople(infiniteScroll);
     // infiniteScroll.complete();
 
   }
