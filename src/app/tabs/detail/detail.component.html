@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      User Details
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="home">
+  <ion-virtual-scroll [items]="people">
+    <ion-card *virtualItem="let person">
+      <ion-card-content>
+        <ion-avatar slot="start" class="hydrated">
+          <ion-img [src]="person.image_url"></ion-img>
+        </ion-avatar>
+        <ion-card-title>
+          {{person.first_name}}
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+  </ion-virtual-scroll>
+</ion-content>
