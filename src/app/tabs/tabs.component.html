@@ -8,54 +8,17 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="user">
+      <ion-icon name="contact"></ion-icon>
       <ion-label>Infinite Scroll</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="detail">
+      <ion-icon name="contacts"></ion-icon>
       <ion-label>Virtual Scroll</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="news-feed" (click)="getNewsFeed()">
+      <ion-icon name="business"></ion-icon>
+      <ion-label>News Feed</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
-<!-- <ion-content class="home">
-        <ion-virtual-scroll [items]="people">
-          <ion-item *virtualItem="let person">
-            <ion-card>
-              <ion-card-content>
-                <ion-card-title>
-                  {{person.first_name}}
-                </ion-card-title>
-              </ion-card-content>
-            </ion-card>
-          </ion-item>
-        </ion-virtual-scroll> -->
-<!-- <ion-card *ngFor="let person of people">
-          <ion-card-content>
-            <ion-card-title>
-              {{person.first_name}}
-            </ion-card-title>
-          </ion-card-content>
-        </ion-card> -->
-<!-- <ion-virtual-scroll [items]="people" approxItemHeight="50px">
-          <ion-item *virtualItem="let person">
-            <h2>{{person.first_name}}</h2>
-          </ion-item>
-        </ion-virtual-scroll> -->
-
-<!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
-          </ion-infinite-scroll-content>
-        </ion-infinite-scroll> -->
-
-<!-- </ion-content> -->
-<!-- <ion-header>
-        <ion-toolbar>
-          <ion-title>
-            Ionic Blank
-          </ion-title>
-        </ion-toolbar>
-      </ion-header>
-      
-      <ion-content padding>
-        The world is your oyster.
-        <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-      </ion-content> -->
