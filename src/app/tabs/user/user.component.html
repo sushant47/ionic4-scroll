@@ -6,13 +6,21 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="home">
-  <ion-card *ngFor="let person of people">
+  <ion-list>
+    <ion-item *ngFor="let person of people">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="person.image_url"></ion-img>
+      </ion-thumbnail>
+      <ion-label>{{person.first_name}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-card *ngFor="let person of people">
     <ion-card-content>
       <ion-card-title>
         {{person.first_name}}
       </ion-card-title>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
     </ion-infinite-scroll-content>

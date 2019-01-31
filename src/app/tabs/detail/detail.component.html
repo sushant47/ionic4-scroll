@@ -6,7 +6,17 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="home">
-  <ion-virtual-scroll [items]="people">
+    <ion-virtual-scroll [items]="people">
+    <ion-list *virtualItem="let person">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-img [src]="person.image_url"></ion-img>
+          </ion-thumbnail>
+          <ion-label>{{person.first_name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-virtual-scroll>
+  <!-- <ion-virtual-scroll [items]="people">
     <ion-card *virtualItem="let person">
       <ion-card-content>
         <ion-avatar slot="start" class="hydrated">
@@ -17,5 +27,5 @@
         </ion-card-title>
       </ion-card-content>
     </ion-card>
-  </ion-virtual-scroll>
+  </ion-virtual-scroll> -->
 </ion-content>
