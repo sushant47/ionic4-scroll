@@ -15,11 +15,15 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.loadPeople();
   }
-  loadPeople(infiniteScroll?) {
+  async loadPeople(infiniteScroll?) {
+    let loading;
     if (!infiniteScroll) {
-      this.presentLoading();
+      loading = await this.loadingController.create({
+        message: 'Loading'
+      });
+      await loading.present();
     }
-    return this.peopleService.getUsersPageWise(this.start, this.size)
+    this.peopleService.getUsersPageWise(this.start, this.size)
       .subscribe((data: any) => {
         for (const person of data.message) {
           this.people.push(person);
@@ -27,17 +31,16 @@ export class UserComponent implements OnInit {
         if (infiniteScroll) {
           infiniteScroll.target.complete();
         } else {
-          this.loadingController.dismiss();
+          loading.dismiss();
         }
 
       });
   }
   async presentLoading() {
     const loading = await this.loadingController.create({
-      message: 'Hellooo',
-      duration: 2000
+      message: 'Hellooo'
     });
-    return await loading.present();
+    await loading.present();
   }
   doInfinite(infiniteScroll: any) {
     this.start += 1;
